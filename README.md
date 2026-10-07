@@ -17,3 +17,40 @@ BazarDor is a price-tracking web app for everyday Bangladeshi essentials such as
 | Database       | MongoDB                   |
 | Notifications  | react-hot-toast           |
 | Deployment     | Vercel                    |
+
+
+
+# API's
+### BASE_URL_1: https://api.api-store.workers.dev/api/bazardor
+### BASE_URL_2: https://api.abcz.workers.dev/api/bazardor (alternative)
+
+Endpoints:
+All Products:
+```
+/products
+```
+Filter:
+
+```
+/products?category=chal
+```
+
+Single Product:
+
+```
+/products/1
+```
+
+
+Categories:
+
+
+```
+/categories
+```
+
+
+Single Category:
+```
+/categories/chal
+```
