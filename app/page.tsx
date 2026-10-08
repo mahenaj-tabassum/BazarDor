@@ -1,7 +1,10 @@
+import Banner from "@/components/Home/Banner";
+import ProductSections from "@/components/Products/ProductSections";
 export default function Home() {
   return (
-    <div>
-      <h2 >Home Page</h2>
+    <div className="mx-5 md:mx-0">
+      <Banner />
+      <ProductSections />
     </div>
   );
 }
