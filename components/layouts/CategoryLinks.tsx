@@ -1,8 +1,15 @@
+import { getCategories } from "@/ApiFetch/getCategories";
+import Link from "next/link";
+import CategoryLinksClient from "./CategoryLinksClient";
 
-const CategoryLinks = () => {
+const CategoryLinks = async () => {
+  const links = await getCategories();
+
   return (
-    <div>CategoryLinks</div>
-  )
-}
+    <div className="bg-white border-b border-b-line">
+      <CategoryLinksClient links={links} />
+    </div>
+  );
+};
 
-export default CategoryLinks
+export default CategoryLinks;
