@@ -2,6 +2,7 @@ import Image from "next/image";
 import Logo from "@/public/logo.png";
 import CategoryLinks from "./CategoryLinks";
 import Link from "next/link";
+import Marquee from "./Marquee";
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", { dateStyle: "full" });
@@ -11,17 +12,17 @@ const Header = () => {
       <nav className={`sticky top-0 z-50 border-b border-line  bg-white`}>
         <div className="max-w-6xl mx-auto h-20">
           <div className="flex justify-between py-3 px-6 md:px-8">
-            <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3">
               <Image src={Logo} alt="Logo" width={40} height={40} />
               <div>
                 <h2 className="text-xl font-bold">বাজার দর</h2>
                 <p className="text-[14px] text-muted">{date}</p>
               </div>
-            </div>
+            </Link>
             <div className="flex items-center gap-5">
               <Link
                 href="/signin"
-                className="cursor-pointer px-4 py-2 rounded-xl hover:bg-gray-100 bg-white text-ink duration-300 transition-colors"
+                className="cursor-pointer px-4 py-2 rounded-xl hover:bg-gray-100 bg-white text-ink duration-300 transition-colors md:flex hidden"
               >
                 সাইন ইন
               </Link>
@@ -36,6 +37,7 @@ const Header = () => {
         </div>
       </nav>
       <CategoryLinks />
+      <Marquee />
     </>
   );
 };

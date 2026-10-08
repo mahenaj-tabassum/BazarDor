@@ -6,7 +6,7 @@ const CategoryLinks = async () => {
   const links = await getCategories();
 
   return (
-    <div className="bg-white border-b border-b-line">
+    <div className="bg-white">
       <CategoryLinksClient links={links} />
     </div>
   );
