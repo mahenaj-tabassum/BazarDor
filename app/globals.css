@@ -12,7 +12,7 @@
 
 @theme inline {
   /* Fonts */
-  --font-sans: var(--font-bangla), system-ui, sans-serif;
+  --font-bangla: var(--font-bangla), system-ui, sans-serif;
 
   /* Colors */
   --color-accent: var(--accent);

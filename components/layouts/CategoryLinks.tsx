@@ -1,5 +1,4 @@
 import { getCategories } from "@/ApiFetch/getCategories";
-import Link from "next/link";
 import CategoryLinksClient from "./CategoryLinksClient";
 
 const CategoryLinks = async () => {

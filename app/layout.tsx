@@ -20,9 +20,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${banglaFont.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-screen flex-col">
         <Header />
-        <main>{children}</main>
+        <main className="mx-auto w-full max-w-6xl flex-1 ">
+          {children}
+        </main>
         <Footer />
         <Toaster position="top-center" />
       </body>

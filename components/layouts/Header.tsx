@@ -11,7 +11,7 @@ const Header = () => {
     <>
       <nav className={`sticky top-0 z-50 border-b border-line  bg-white`}>
         <div className="max-w-6xl mx-auto h-20">
-          <div className="flex justify-between py-3 px-6 md:px-8">
+          <div className="flex justify-between py-3 px-6 md:px-0">
             <Link href="/" className="flex items-center gap-3">
               <Image src={Logo} alt="Logo" width={40} height={40} />
               <div>

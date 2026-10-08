@@ -25,10 +25,19 @@ const Marquee = async () => {
 
           <span
             className={
-              item.change.dir === "up" ? "text-red-500" : "text-green-500"
+              item.change.dir === "up"
+                ? "text-red-500"
+                : item.change.dir === "down"
+                  ? "text-green-500"
+                  : "text-gray-500"
             }
           >
-            {item.change.dir === "up" ? "▲" : "▼"} {item.change.pct}%
+            {item.change.dir === "up"
+              ? "▲"
+              : item.change.dir === "down"
+                ? "▼"
+                : ""}
+            {item.change.pct}%
           </span>
         </span>
       ))}
@@ -37,7 +46,7 @@ const Marquee = async () => {
 
   return (
     <div className="border-y border-line bg-white text-ink">
-      <div className="mx-auto max-w-6xl md:px-8 px-5 py-2 flex items-center">
+      <div className="mx-auto max-w-6xl md:px-0 px-5 py-2 flex items-center">
         <div className="marquee-viewport min-w-0 flex-1 overflow-hidden">
           <div className="marquee flex w-max">
             {group(false)}

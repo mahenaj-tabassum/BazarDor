@@ -23,7 +23,7 @@ const CategoryLinksClient = ({ links }: Props) => {
   const closeMenu = () => setMenuOpen(false);
   return (
     <>
-      <div className=" max-w-6xl mx-auto py-2 px-6 md:px-8 md:flex md:gap-8 gap-1 hidden">
+      <div className=" max-w-6xl mx-auto py-2 px-6 md:px-0 md:flex md:gap-8 gap-1 hidden">
         {links.map((item) => {
           const isActive = activeCategory === item.slug;
           return (
