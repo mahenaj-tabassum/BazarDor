@@ -159,7 +159,7 @@ const ProductDetailsComponent = ({ productData }: Props) => {
               </span>{" "}
               টাকা
             </p>
-            <p>প্রতি কেজি-এর হিসাবে</p>
+            <p>প্রতি {unitLabels[productData.unit]}-এর হিসাবে</p>
           </div>
         </div>
 

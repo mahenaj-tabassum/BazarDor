@@ -15,12 +15,12 @@ const Header = () => {
   const firstName = user?.name.split(" ")[0];
   const email = user?.email;
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
   const handleSignOut = async () => {
     await authClient.signOut();
     setIsOpen(false);
     toast.success("সফলভাবে সাইন আউট করা হয়েছে!");
-    router.push("/")
+    router.push("/");
   };
   return (
     <>

@@ -23,7 +23,7 @@ const HomeProductCard = ({ product }: Props) => {
       <div className="flex items-center justify-between">
         <p>
           <span className="text-[24px] font-bold mr-2">
-            {product.today.toLocaleString("bn-BN")}
+            {product.today.toLocaleString("bn-BD")}
           </span>
           টাকা
         </p>
