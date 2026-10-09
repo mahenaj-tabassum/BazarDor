@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { FcHome } from "react-icons/fc";
 
 type Category = {
   id: string;
@@ -35,7 +36,10 @@ const CategoryLinksClient = ({ links }: Props) => {
               : "hover:bg-accent hover:text-white"
           }`}
         >
-          হোম
+          <span className="flex items-center gap-2">
+            <FcHome size={18} />
+            হোম
+          </span>
         </Link>
 
         {links.map((item) => {
