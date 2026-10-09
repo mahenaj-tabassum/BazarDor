@@ -6,7 +6,7 @@ const CategoryLinks = async () => {
   const links = await getCategories();
 
   return (
-    <Suspense fallback={"Loading"}>
+    <Suspense fallback={""}>
       <div className="bg-white">
         <CategoryLinksClient links={links} />
       </div>
