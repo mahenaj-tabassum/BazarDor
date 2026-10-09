@@ -11,9 +11,9 @@ const Marquee = async () => {
           key={item.id}
           className="flex border-r items-center gap-2 px-5 whitespace-nowrap"
         >
-          {item.categoryIcon}
+          {item.image}
           <Link
-            href={`/products?category=${item.slug}`}
+            href={`/products/${item.id}`}
             className="hover:underline cursor-pointer"
           >
             {item.nameBn}

@@ -3,7 +3,7 @@ import Logo from "@/public/logo.png";
 import { Menu, XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 type Category = {
@@ -19,11 +19,25 @@ type Props = {
 const CategoryLinksClient = ({ links }: Props) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const searchParams = useSearchParams();
+  const pathname = usePathname();
   const activeCategory = searchParams.get("category");
   const closeMenu = () => setMenuOpen(false);
+  const isHomeActive = pathname === "/";
+
   return (
     <>
       <div className=" max-w-6xl mx-auto py-2 px-6 md:px-0 md:flex md:gap-8 gap-1 hidden">
+        <Link
+          href="/"
+          className={`px-3 py-1 rounded transition-colors ${
+            isHomeActive
+              ? "bg-accent text-white"
+              : "hover:bg-accent hover:text-white"
+          }`}
+        >
+          হোম
+        </Link>
+
         {links.map((item) => {
           const isActive = activeCategory === item.slug;
           return (

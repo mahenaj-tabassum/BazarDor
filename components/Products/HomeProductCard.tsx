@@ -12,7 +12,7 @@ const HomeProductCard = ({ product }: Props) => {
     >
       <div className="flex items-center gap-3 mb-3">
         <span className="h-12 w-12 flex items-center justify-center bg-gray-200 rounded-xl">
-          {product.categoryIcon}
+          {product.image}
         </span>
         <div>
           <h3 className="font-semibold text-[16px]">{product.nameBn}</h3>

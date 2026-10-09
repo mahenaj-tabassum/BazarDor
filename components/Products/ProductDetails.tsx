@@ -32,7 +32,7 @@ const ProductDetailsComponent = ({ productData }: Props) => {
       {/* Bread Crumbs */}
       <ul className="flex items-center gap-2 py-2">
         {/* Home */}
-        <li>
+        <li className="hover:text-accent/80">
           <Link href="/">হোম</Link>
         </li>
         <li>
@@ -40,7 +40,7 @@ const ProductDetailsComponent = ({ productData }: Props) => {
         </li>
 
         {/* Category */}
-        <li>
+        <li className="hover:text-accent/80">
           <Link href={`/products?category=${productData.category}`}>
             {productData.categoryNameBn}
           </Link>
