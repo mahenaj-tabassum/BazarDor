@@ -46,7 +46,7 @@ const Marquee = async () => {
 
   return (
     <div className="border-y border-line bg-white text-ink">
-      <div className="mx-auto max-w-6xl md:px-0 px-5 py-2 flex items-center">
+      <div className="mx-auto max-w-6xl lg:px-0 px-5 py-2 flex items-center">
         <div className="marquee-viewport min-w-0 flex-1 overflow-hidden">
           <div className="marquee flex w-max">
             {group(false)}

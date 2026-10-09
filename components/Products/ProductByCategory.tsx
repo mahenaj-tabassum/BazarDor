@@ -18,7 +18,7 @@ const ProductByCategory = ({ products }: Props) => {
     return 0;
   });
   return (
-    <div className="mx-6 md:my-10 my-5 md:mx-0">
+    <div className="mx-6 md:my-10 my-5 lg:mx-0">
       {/* Main Card */}
       <div className="bg-white px-5 py-5 md:rounded-2xl rounded md:mb-15 mb-7">
         <div className="flex items-center gap-4">

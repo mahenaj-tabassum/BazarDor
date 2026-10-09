@@ -28,7 +28,7 @@ const ProductDetailsComponent = ({ productData }: Props) => {
   );
 
   return (
-    <div className="mx-6 md:mx-0 py-5 md:py-8 md:mb-20 mb-10">
+    <div className="mx-6 lg:mx-0 py-5 md:py-8 md:mb-20 mb-10">
       {/* Bread Crumbs */}
       <ul className="flex items-center gap-2 py-2">
         {/* Home */}

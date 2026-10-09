@@ -26,13 +26,14 @@ const AuthForms = ({ mode }: { mode: "in" | "up" }) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-
     // Confirm Password validation
     if (signUp && password !== confirmPassword) {
       toast.error("দুটি পাসওয়ার্ড মিলছে না!");
       return;
     }
+
+    setLoading(true);
+
     try {
       // SIGN UP
       if (signUp) {
@@ -78,7 +79,7 @@ const AuthForms = ({ mode }: { mode: "in" | "up" }) => {
       const { error } = await authClient.signIn.social({
         provider,
         callbackURL: "/",
-        errorCallbackURL: "/signin",
+        // errorCallbackURL: "/signin",
       });
       if (error) {
         toast.error(error.message || "Social sign-in failed.");

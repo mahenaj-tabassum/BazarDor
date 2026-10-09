@@ -27,7 +27,7 @@ const CategoryLinksClient = ({ links }: Props) => {
 
   return (
     <>
-      <div className=" max-w-6xl mx-auto py-2 px-6 md:px-0 md:flex md:gap-8 gap-1 hidden">
+      <div className=" max-w-6xl mx-auto py-2 px-6 lg:px-0 md:flex md:gap-8 gap-1 hidden">
         <Link
           href="/"
           className={`px-3 py-1 rounded transition-colors ${
