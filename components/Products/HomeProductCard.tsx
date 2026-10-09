@@ -29,10 +29,10 @@ const HomeProductCard = ({ product }: Props) => {
         </p>
 
         <div
-          className={`px-3 py-0.5 rounded ${product.change.dir === "up" ? "bg-error/10 text-error " : product.change.dir === "down"? "bg-success/10 text-success": "bg-gray-100 text-gray-600"}`}
+          className={`px-3 py-0.5 rounded ${product.change.dir === "up" ? "bg-error/10 text-error " : product.change.dir === "down" ? "bg-success/10 text-success" : "bg-gray-100 text-gray-600"}`}
         >
           <span
-            className={`${product.change.dir === "up" ? "text-red-500" : product.change.dir === "down"? "text-success": "text-gray-400"}`}
+            className={`${product.change.dir === "up" ? "text-red-500" : product.change.dir === "down" ? "text-success" : "text-gray-400"}`}
           >
             {product.change.dir === "up"
               ? "▲"
