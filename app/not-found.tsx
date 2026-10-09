@@ -10,7 +10,7 @@ const NotFound = () => {
     <section className="relative flex md:flex-row flex-col py-10 md:py-4 min-h-[70vh] gap-5 items-center justify-between overflow-hidden md:px-10 px-5 text-center">
       <span
         aria-hidden="true"
-        className="pointer-events-none  select-none md:text-[10rem] text-6xl font-black leading-none text-accent/50 sm:text-[16rem]"
+        className="pointer-events-none  select-none md:text-[14rem] md:ml-30 text-6xl font-black leading-none text-accent/50 sm:text-[16rem]"
       >
         404
       </span>
