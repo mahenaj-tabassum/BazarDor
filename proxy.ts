@@ -26,5 +26,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/profile/:path*", "/products/:path"],
+  matcher: ["/profile/:path*", "/product/:path"],
 };
