@@ -2,6 +2,12 @@ import { getProducts } from "@/ApiFetch/getProducts";
 import Link from "next/link";
 
 const Marquee = async () => {
+  const unitBn: Record<string, string> = {
+    kg: "কেজি",
+    litre: "লিটার",
+    dozen: "ডজন",
+    piece: "পিস",
+  };
   const productData = await getProducts();
 
   const group = (hidden: boolean) => (
@@ -20,7 +26,7 @@ const Marquee = async () => {
           </Link>
 
           <span>
-            {item.today} টাকা/{item.unit}
+            {item.today.toLocaleString("bn-BD")} টাকা/{unitBn[item.unit]}
           </span>
 
           <span
@@ -37,7 +43,7 @@ const Marquee = async () => {
               : item.change.dir === "down"
                 ? "▼"
                 : ""}
-            {item.change.pct}%
+            {Math.abs(item.change.pct).toLocaleString("bn-BD")}%
           </span>
         </span>
       ))}

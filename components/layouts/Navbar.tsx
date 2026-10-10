@@ -6,8 +6,8 @@ const Navbar = () => {
   return (
     <div>
       <Header />
-      <Marquee />
       <CategoryLinks />
+      <Marquee />
     </div>
   );
 };

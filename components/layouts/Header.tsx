@@ -9,18 +9,26 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 const Header = () => {
-  const date = new Date().toLocaleDateString("bn-BD", { dateStyle: "full" });
+  const date = new Date().toLocaleDateString("bn-BD", {
+    dateStyle: "full",
+    timeZone: "Asia/Dhaka",
+  });
   const { data: session } = authClient.useSession();
   const user = session?.user;
   const firstName = user?.name.split(" ")[0];
   const email = user?.email;
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+
   const handleSignOut = async () => {
-    await authClient.signOut();
-    setIsOpen(false);
-    toast.success("সফলভাবে সাইন আউট করা হয়েছে!");
-    router.push("/");
+    try {
+      await authClient.signOut();
+      setIsOpen(false);
+      toast.success("সফলভাবে সাইন আউট করা হয়েছে!");
+      router.push("/");
+    } catch {
+      toast.error("সাইন আউট করা যায়নি, আবার চেষ্টা করুন।");
+    }
   };
   return (
     <>
@@ -31,7 +39,9 @@ const Header = () => {
               <Image src={Logo} alt="Logo" width={40} height={40} />
               <div>
                 <h2 className="text-xl font-bold">বাজার দর</h2>
-                <p className="text-[14px] text-muted">{date}</p>
+                <p suppressHydrationWarning className="text-[14px] text-muted">
+                  {date}
+                </p>
               </div>
             </Link>
             {user ? (
@@ -43,13 +53,13 @@ const Header = () => {
                     </h3>
                   </div>
                   <div className="relative">
-                    <h2
+                    <button
                       onClick={() => setIsOpen(!isOpen)}
                       className="font-semibold cursor-pointer flex items-center gap-2"
                     >
                       {user.name?.charAt(0).toUpperCase() + user.name?.slice(1)}
                       <ChevronDown size={15} />
-                    </h2>
+                    </button>
 
                     {isOpen && (
                       <div className="absolute right-0 top-full mt-2 w-64 rounded-xl border border-line bg-white px-4 py-5 shadow-lg z-50">
@@ -80,7 +90,7 @@ const Header = () => {
               <div className="flex items-center gap-5">
                 <Link
                   href="/signin"
-                  className="cursor-pointer px-4 py-2 rounded-xl hover:bg-gray-100 bg-white text-ink duration-300 transition-colors md:flex hidden"
+                  className="hidden sm:flex px-3 sm:px-4 py-2 text-sm sm:text-base rounded-xl hover:bg-gray-100 bg-white text-ink transition-colors duration-300"
                 >
                   সাইন ইন
                 </Link>
