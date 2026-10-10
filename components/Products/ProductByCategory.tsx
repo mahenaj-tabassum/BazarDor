@@ -3,6 +3,8 @@ import { Product } from "@/types/Product";
 import HomeProductCard from "./HomeProductCard";
 import ProductSorting from "./ProductSorting";
 import { useState } from "react";
+import CategorySkeleton from "../Loader/CategorySkeleton";
+import Loader from "@/app/products/loading";
 
 type Props = {
   products: Product[];
@@ -18,7 +20,7 @@ const ProductByCategory = ({ products }: Props) => {
     return 0;
   });
   return (
-    <div className="mx-6 md:my-10 my-5 lg:mx-0">
+    <div className="mx-6 md:my-10 my-5 lg:mx-6">
       {/* Main Card */}
       <div className="bg-white px-5 py-5 md:rounded-2xl rounded md:mb-15 mb-7">
         <div className="flex items-center gap-4">
@@ -34,7 +36,7 @@ const ProductByCategory = ({ products }: Props) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between my-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between my-5">
         <p className="text-muted text-[14px]">
           মোট {products.length.toLocaleString("bn-BD")}টি পণ্য দেখানো হচ্ছে
         </p>

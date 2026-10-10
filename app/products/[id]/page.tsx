@@ -1,4 +1,5 @@
 import ProductDetailsComponent from "@/components/Products/ProductDetails";
+import Loading from "./loading";
 
 const ProductDetails = async ({
   params,

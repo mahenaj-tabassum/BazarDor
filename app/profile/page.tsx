@@ -85,7 +85,7 @@ const ProfilePage = () => {
           আপনার অ্যাকাউন্টের তথ্য এখানে দেখুন।
         </p>
 
-        <div className="mt-5 flex items-center justify-between gap-4 rounded-2xl bg-white px-5 py-4">
+        <div className="mt-5 flex flex-col sm:flex-row  sm:items-center justify-between gap-4 rounded-2xl bg-white px-5 py-4">
           <div className="flex min-w-0 items-center gap-3">
             <div className="flex h-15 w-15 shrink-0 items-center justify-center rounded-xl bg-gray-100">
               <h3 className="text-3xl font-bold">{initial}</h3>

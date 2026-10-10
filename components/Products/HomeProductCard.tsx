@@ -5,6 +5,12 @@ type Props = {
   product: Product;
 };
 const HomeProductCard = ({ product }: Props) => {
+  const unitBn: Record<string, string> = {
+    kg: "কেজি",
+    litre: "লিটার",
+    dozen: "ডজন",
+    piece: "পিস",
+  };
   return (
     <Link
       href={`/products/${product.id}`}
@@ -16,7 +22,7 @@ const HomeProductCard = ({ product }: Props) => {
         </span>
         <div>
           <h3 className="font-semibold text-[16px]">{product.nameBn}</h3>
-          <p className="text-muted">প্রতি {product.unit}</p>
+          <p className="text-muted">প্রতি {unitBn[product.unit]}</p>
         </div>
       </div>
       <p className="text-muted mt-5">আজকের দাম</p>
@@ -41,7 +47,7 @@ const HomeProductCard = ({ product }: Props) => {
                 : "—"}
           </span>
           <span className="font-bangla">
-            {product.change.pct.toLocaleString("bn-BD")}%
+            {Math.abs(product.change.pct).toLocaleString("bn-BD")}%
           </span>
         </div>
       </div>

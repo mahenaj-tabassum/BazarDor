@@ -8,9 +8,9 @@ type Props = {
 const unitLabels: Record<string, string> = {
   kg: "কেজি",
   gram: "গ্রাম",
-  liter: "লিটার",
+  litre: "লিটার",
   ml: "মিলিলিটার",
-  piece: "টি",
+  piece: "পিস",
   dozen: "ডজন",
 };
 
@@ -101,7 +101,7 @@ const ProductDetailsComponent = ({ productData }: Props) => {
         </div>
 
         {/* Right Side */}
-        <div className="w-full sm:w-36 md:w-40 shrink-0 min-h-32 px-4 py-3 bg-gray-100 flex-col items-center justify-center rounded">
+        <div className="w-full sm:w-36 md:w-40 shrink-0 min-h-32 px-4 py-3 bg-gray-100 flex flex-col items-center justify-center rounded">
           <div className="text-center">
             <p className="text-[14px] text-muted">আজকের দাম</p>
             <p className="text-3xl sm:text-4xl font-bold">
@@ -113,11 +113,11 @@ const ProductDetailsComponent = ({ productData }: Props) => {
 
             {productData.change.dir === "up" ? (
               <span className="text-error text-[14px] flex justify-center font-bold">
-                ▲ {productData.change.pct.toLocaleString("bn-BD")}%
+                ▲ {Math.abs(productData.change.pct).toLocaleString("bn-BD")}%
               </span>
             ) : productData.change.dir === "down" ? (
               <span className="text-success text-[14px] flex justify-center font-bold">
-                ▼ {productData.change.pct.toLocaleString("bn-BD")}%
+                ▼ {Math.abs(productData.change.pct).toLocaleString("bn-BD")}%
               </span>
             ) : (
               "— ০%"
@@ -133,7 +133,7 @@ const ProductDetailsComponent = ({ productData }: Props) => {
         <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 mb-6 mt-4">
           <div className="border border-line py-4 px-7 rounded-xl">
             <p className="text-[12px] text-muted">সর্বনিম্ন দাম</p>
-            <p className="text-success">
+            <p className="text-accent">
               <span className="font-bold text-2xl">
                 {lowestMarket.min.toLocaleString("bn-BD")}
               </span>{" "}
@@ -153,7 +153,7 @@ const ProductDetailsComponent = ({ productData }: Props) => {
           </div>
           <div className="border border-line py-4 px-7 rounded-xl">
             <p className="text-[12px] text-muted">গড় দাম</p>
-            <p className="text-success">
+            <p className="text-accent">
               <span className="font-bold text-2xl">
                 {average.toLocaleString("bn-BD")}
               </span>{" "}
