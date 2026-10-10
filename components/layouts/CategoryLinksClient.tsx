@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import Logo from "@/public/logo.png";
 import { Menu, XIcon } from "lucide-react";
 import Image from "next/image";
@@ -24,6 +25,8 @@ const CategoryLinksClient = ({ links }: Props) => {
   const activeCategory = searchParams.get("category");
   const closeMenu = () => setMenuOpen(false);
   const isHomeActive = pathname === "/";
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
 
   return (
     <>
@@ -103,6 +106,14 @@ const CategoryLinksClient = ({ links }: Props) => {
 
           {/* Navigation */}
           <ul className="flex-1 overflow-y-auto py-2">
+            <Link
+              href="/"
+              onClick={closeMenu}
+              className=" flex items-center justify-between py-4 font-newsReader text-[32px] font-medium uppercase tracking-[0.01em] transition-colors pr-6 text-ink hover:text-accent"
+            >
+              হোম
+              <span className="font-sans text-base text-muted">→</span>
+            </Link>
             {links.map((item, index) => {
               const isActive = activeCategory === item.slug;
 
@@ -137,7 +148,24 @@ const CategoryLinksClient = ({ links }: Props) => {
               );
             })}
 
-            {/* Authentication */}
+            {!user && (
+              <div className="flex gap-3 border-t border-line py-5">
+                <Link
+                  href="/signin"
+                  onClick={closeMenu}
+                  className="flex-1 text-center hover:bg-gray-200 px-4 py-3 rounded-xl border border-line"
+                >
+                  সাইন ইন
+                </Link>
+                <Link
+                  href="/signup"
+                  onClick={closeMenu}
+                  className="flex-1 text-center px-4 py-3 rounded-xl bg-accent text-white"
+                >
+                  সাইন আপ
+                </Link>
+              </div>
+            )}
           </ul>
         </div>
       </div>
