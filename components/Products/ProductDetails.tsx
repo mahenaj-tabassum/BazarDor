@@ -15,12 +15,12 @@ const unitLabels: Record<string, string> = {
 };
 
 const ProductDetailsComponent = ({ productData }: Props) => {
-  const markets = productData.markets;
+  const markets = productData.markets ?? [];
   const lowestMarket = markets.reduce((lowest, market) =>
     market.min < lowest.min ? market : lowest,
   );
   const highestMarket = markets.reduce((highest, market) =>
-    market.max > highest.min ? market : highest,
+    market.max > highest.max ? market : highest,
   );
   const average = Math.round(
     markets.reduce((total, market) => total + market.min + market.max, 0) /
@@ -41,7 +41,7 @@ const ProductDetailsComponent = ({ productData }: Props) => {
 
         {/* Category */}
         <li className="hover:text-accent/80">
-          <Link href={`/products?category=${productData.category}`}>
+          <Link href={`/product?category=${productData.category}`}>
             {productData.categoryNameBn}
           </Link>
         </li>
@@ -52,7 +52,7 @@ const ProductDetailsComponent = ({ productData }: Props) => {
 
         {/* Product */}
         <li>
-          <Link href={`/products/${productData.id}`} className="text-accent">
+          <Link href={`/product/${productData.id}`} className="text-accent">
             {productData.nameBn}
           </Link>
         </li>
@@ -165,7 +165,7 @@ const ProductDetailsComponent = ({ productData }: Props) => {
 
         {/* Lists */}
         <div>
-          <h3 className="text-lg sm:text-2xl font-semibold">
+          <h3 className="text-lg sm:text-2xl font-semibold mb-6">
             বাজারভিত্তিক আজকের দাম
           </h3>
           <div className="border border-line rounded-2xl overflow-x-auto">

@@ -3,8 +3,6 @@ import { Product } from "@/types/Product";
 import HomeProductCard from "./HomeProductCard";
 import ProductSorting from "./ProductSorting";
 import { useState } from "react";
-import CategorySkeleton from "../Loader/CategorySkeleton";
-import Loader from "@/app/products/loading";
 
 type Props = {
   products: Product[];

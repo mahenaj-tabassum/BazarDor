@@ -55,7 +55,7 @@ const CategoryLinksClient = ({ links }: Props) => {
                   : "hover:bg-accent hover:text-white"
               }`}
               key={item.id}
-              href={`/products?category=${item.slug}`}
+              href={`/product?category=${item.slug}`}
             >
               <span>
                 {item.icon}
@@ -130,7 +130,7 @@ const CategoryLinksClient = ({ links }: Props) => {
                   }`}
                 >
                   <Link
-                    href={`/products?category=${item.slug}`}
+                    href={`/product?category=${item.slug}`}
                     onClick={closeMenu}
                     className={`
                         flex items-center justify-between

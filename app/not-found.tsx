@@ -33,7 +33,7 @@ const NotFound = () => {
             হোম পেজে ফিরুন
           </Link>
           <Link
-            href="/#all-products"
+            href="#সব-পণ্য"
             className="rounded-lg border border-line bg-white px-5 py-3 font-semibold text-ink transition hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             সব পণ্য দেখুন

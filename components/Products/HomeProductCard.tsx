@@ -13,7 +13,7 @@ const HomeProductCard = ({ product }: Props) => {
   };
   return (
     <Link
-      href={`/products/${product.id}`}
+      href={`/product/${product.id}`}
       className="bg-white rounded-xl px-5 py-3 hover:-translate-y-1.5 transition-all duration-300"
     >
       <div className="flex items-center gap-3 mb-3">
