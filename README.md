@@ -69,42 +69,41 @@ Supported authentication methods:
 
 Authenticated users can access protected pages and update their profile name. Access to protected pages is checked through the application's authentication flow.
 
-# API's
+## API Endpoints
 
-### BASE_URL_1: https://api.api-store.workers.dev/api/bazardor
+**Main API URL:** [https://openapi.programming-hero.com/api/bazardor](https://openapi.programming-hero.com/api/bazardor)
 
-### BASE_URL_2: https://api.abcz.workers.dev/api/bazardor (alternative)
+### All Categories
 
-Endpoints:
-All Products:
+[`/api/bazardor/categories`](https://openapi.programming-hero.com/api/bazardor/categories)
 
-```
-/products
-```
+### Single Category
 
-Filter:
+[`/api/bazardor/categories/chal`](https://openapi.programming-hero.com/api/bazardor/categories/chal)
 
-```
-/products?category=chal
-```
+### All Products
 
-Single Product:
+[`/api/bazardor/products`](https://openapi.programming-hero.com/api/bazardor/products)
 
-```
-/products/1
-```
+### Filter Products by Category
 
-Categories:
+[`/api/bazardor/products?category=chal`](https://openapi.programming-hero.com/api/bazardor/products?category=chal)
 
-```
-/categories
-```
+### Single Product
 
-Single Category:
+[`/api/bazardor/products/1`](https://openapi.programming-hero.com/api/bazardor/products/1)
 
-```
-/categories/chal
-```
+### All Endpoints
+
+| Method | Endpoint                                                                                                           | Description                       |
+| :----- | :----------------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| `GET`  | [`/api/bazardor/categories`](https://openapi.programming-hero.com/api/bazardor/categories)                         | Retrieve all categories (8 items) |
+| `GET`  | [`/api/bazardor/categories/chal`](https://openapi.programming-hero.com/api/bazardor/categories/chal)               | Retrieve a single category by ID  |
+| `GET`  | [`/api/bazardor/products`](https://openapi.programming-hero.com/api/bazardor/products)                             | Retrieve all products (33 items)  |
+| `GET`  | [`/api/bazardor/products?category=chal`](https://openapi.programming-hero.com/api/bazardor/products?category=chal) | Filter products by category       |
+| `GET`  | [`/api/bazardor/products/1`](https://openapi.programming-hero.com/api/bazardor/products/1)                         | Retrieve a single product by ID   |
+
+
 
 ## ⚙️ Getting Started
 
