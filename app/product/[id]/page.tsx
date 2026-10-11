@@ -1,5 +1,5 @@
 import ProductDetailsComponent from "@/components/Products/ProductDetails";
-import Loading from "./loading";
+import { notFound } from "next/navigation";
 
 const ProductDetails = async ({
   params,
@@ -10,8 +10,19 @@ const ProductDetails = async ({
   const response = await fetch(
     `https://api.abcz.workers.dev/api/bazardor/products/${id}`,
   );
+  if (response.status === 404) {
+    notFound();
+  }
+  if (!response.ok) {
+    throw new Error("Failed to fetch product");
+  }
+
   const productData = await response.json();
-  console.log(productData);
+
+  if (!productData || !productData.id) {
+    notFound();
+  }
+
   return (
     <div>
       <ProductDetailsComponent productData={productData} />

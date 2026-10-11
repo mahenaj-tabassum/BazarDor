@@ -10,7 +10,7 @@ const Banner = () => {
     <section className="bg-white rounded-2xl my-10 w-full px-8 py-10 md:py-5">
       <div className="md:flex-row flex-col flex items-center justify-between gap-5">
         <div>
-          <span className="bg-accent/8 text-accent font-semibold rounded py-1 px-3">
+          <span className="bg-accent/8 text-accent font-light rounded py-1 px-3">
             {date}
           </span>
           <h1 className="md:text-4xl text-3xl font-bold mt-7 mb-5">

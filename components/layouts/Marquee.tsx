@@ -19,13 +19,13 @@ const Marquee = async () => {
         >
           {item.image}
           <Link
-            href={`/products/${item.id}`}
+            href={`/product/${item.id}`}
             className="hover:underline cursor-pointer"
           >
             {item.nameBn}
           </Link>
 
-          <span>
+          <span className="font-light">
             {item.today.toLocaleString("bn-BD")} টাকা/{unitBn[item.unit]}
           </span>
 

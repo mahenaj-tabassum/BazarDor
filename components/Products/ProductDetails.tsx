@@ -16,16 +16,29 @@ const unitLabels: Record<string, string> = {
 
 const ProductDetailsComponent = ({ productData }: Props) => {
   const markets = productData.markets ?? [];
-  const lowestMarket = markets.reduce((lowest, market) =>
-    market.min < lowest.min ? market : lowest,
-  );
-  const highestMarket = markets.reduce((highest, market) =>
-    market.max > highest.max ? market : highest,
-  );
-  const average = Math.round(
-    markets.reduce((total, market) => total + market.min + market.max, 0) /
-      (markets.length * 2),
-  );
+  const lowestMarket =
+    markets.length > 0
+      ? markets.reduce((lowest, market) =>
+          market.min < lowest.min ? market : lowest,
+        )
+      : null;
+  const highestMarket =
+    markets.length > 0
+      ? markets.reduce((highest, market) =>
+          market.max > highest.max ? market : highest,
+        )
+      : null;
+
+  const average =
+    markets.length > 0
+      ? Math.round(
+          markets.reduce(
+            (total, market) => total + market.min + market.max,
+            0,
+          ) /
+            (markets.length * 2),
+        )
+      : null;
 
   return (
     <div className="mx-6 lg:mx-0 py-5 md:py-8 md:mb-20 mb-10">
@@ -120,7 +133,9 @@ const ProductDetailsComponent = ({ productData }: Props) => {
                 ▼ {Math.abs(productData.change.pct).toLocaleString("bn-BD")}%
               </span>
             ) : (
-              "— ০%"
+              <span className="text-gray-500 text-[14px] flex justify-center font-semibold">
+                ০%
+              </span>
             )}
           </div>
         </div>
@@ -135,31 +150,44 @@ const ProductDetailsComponent = ({ productData }: Props) => {
             <p className="text-[12px] text-muted">সর্বনিম্ন দাম</p>
             <p className="text-accent">
               <span className="font-bold text-2xl">
-                {lowestMarket.min.toLocaleString("bn-BD")}
-              </span>{" "}
-              টাকা
+                {lowestMarket ? lowestMarket.min.toLocaleString("bn-BD") : "—"}
+              </span>
+              {lowestMarket && " টাকা"}
             </p>
-            <p>সবচেয়ে কম দামের বাজার</p>
+            <p>
+              {lowestMarket
+                ? "সবচেয়ে কম দামের বাজার"
+                : "দামের তথ্য পাওয়া যায়নি"}
+            </p>
           </div>
+
           <div className="border border-line py-4 px-7 rounded-xl">
             <p className="text-[12px] text-muted">সর্বাধিক দাম</p>
             <p className="text-error">
               <span className="font-bold text-2xl">
-                {highestMarket.max.toLocaleString("bn-BD")}
-              </span>{" "}
-              টাকা
+                {highestMarket
+                  ? highestMarket.max.toLocaleString("bn-BD")
+                  : "—"}
+              </span>
+              {highestMarket && " টাকা"}
             </p>
-            <p>সবচেয়ে বেশি দামের বাজার</p>
+            <p>
+              {highestMarket
+                ? "সবচেয়ে বেশি দামের বাজার"
+                : "দামের তথ্য পাওয়া যায়নি"}
+            </p>
           </div>
           <div className="border border-line py-4 px-7 rounded-xl">
             <p className="text-[12px] text-muted">গড় দাম</p>
             <p className="text-accent">
               <span className="font-bold text-2xl">
-                {average.toLocaleString("bn-BD")}
-              </span>{" "}
-              টাকা
+                {average !== null ? average.toLocaleString("bn-BD") : "—"}
+              </span>
+              {average !== null && " টাকা"}
             </p>
-            <p>প্রতি {unitLabels[productData.unit]}-এর হিসাবে</p>
+            <p>
+              প্রতি {unitLabels[productData.unit] ?? productData.unit}-এর হিসাবে
+            </p>
           </div>
         </div>
 
@@ -177,10 +205,11 @@ const ProductDetailsComponent = ({ productData }: Props) => {
                 <li className="text-muted/70 font-bold">সর্বাধিক</li>
                 <li className="text-right text-muted/70 font-bold">গড়</li>
               </ul>
-              {markets.map((market, idx) => {
-                return (
+
+              {markets.length > 0 ? (
+                markets.map((market) => (
                   <ul
-                    key={idx}
+                    key={`${market.market}-${market.division}`}
                     className="odd:bg-gray-100 min-w-175 grid grid-cols-[1.5fr_2fr_1fr_1fr_1fr] border-b last:border-b-0 border-black px-4 py-3"
                   >
                     <li>{market.market}</li>
@@ -192,8 +221,15 @@ const ProductDetailsComponent = ({ productData }: Props) => {
                       টাকা
                     </li>
                   </ul>
-                );
-              })}
+                ))
+              ) : (
+                <div className="py-10 px-4 text-center text-muted">
+                  <p className="font-semibold">বাজারের তথ্য পাওয়া যায়নি</p>
+                  <p className="text-sm mt-1">
+                    এই পণ্যের জন্য বর্তমানে কোনো বাজারদর পাওয়া যাচ্ছে না।
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

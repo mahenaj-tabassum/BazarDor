@@ -44,9 +44,9 @@ const HomeProductCard = ({ product }: Props) => {
               ? "▲"
               : product.change.dir === "down"
                 ? "▼"
-                : "—"}
+                : ""}
           </span>
-          <span className="font-bangla">
+          <span className="font-light">
             {Math.abs(product.change.pct).toLocaleString("bn-BD")}%
           </span>
         </div>

@@ -39,7 +39,7 @@ const Header = () => {
               <Image src={Logo} alt="Logo" width={40} height={40} />
               <div>
                 <h2 className="text-xl font-bold">বাজার দর</h2>
-                <p suppressHydrationWarning className="text-[14px] text-muted">
+                <p suppressHydrationWarning className="text-[14px] text-muted font-light">
                   {date}
                 </p>
               </div>
